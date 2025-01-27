@@ -1,6 +1,6 @@
 'use strict';
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 // Query selectors:
 // Modal:
 const modal = document.querySelector('.modal');
@@ -29,7 +29,7 @@ const btnSliderL = document.querySelector('.slider__btn--left');
 const btnSliderR = document.querySelector('.slider__btn--right');
 const dotsContainer = document.querySelector('.dots');
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 // Modal window:
 const openModal = function () {
   modal.classList.remove('hidden');
@@ -53,13 +53,11 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 // Smooth scrolling:
 document
   .querySelector('.btn--scroll-to')
-  .addEventListener('click', () =>
-    section1.scrollIntoView({ behavior: 'smooth' })
-  );
+  .addEventListener('click', () => section1.scrollIntoView({ behavior: 'smooth' }));
 
 // Page navigation:
 document.querySelector('.nav__links').addEventListener('click', function (e) {
@@ -71,7 +69,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 // Tabs Component:
 tabsContainer.addEventListener('click', function (e) {
   e.preventDefault();
@@ -80,10 +78,8 @@ tabsContainer.addEventListener('click', function (e) {
   if (!clickd) return;
 
   // Remove Clases:
-  tabs.forEach(tab => tab.classList.remove('operations__tab--active'));
-  tabsContent.forEach(tab =>
-    tab.classList.remove('operations__content--active')
-  );
+  tabs.forEach((tab) => tab.classList.remove('operations__tab--active'));
+  tabsContent.forEach((tab) => tab.classList.remove('operations__content--active'));
 
   // Add closes to the selected tab:
   clickd.classList.add('operations__tab--active');
@@ -92,7 +88,7 @@ tabsContainer.addEventListener('click', function (e) {
     .classList.add('operations__content--active');
 });
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 // Menu links fade animation:
 const hoverFade = function (e, opacity) {
   // Guard:
@@ -110,10 +106,10 @@ const hoverFade = function (e, opacity) {
   closest.querySelector('img').style.opacity = opacity;
 };
 
-nav.addEventListener('mouseover', e => hoverFade(e, 0.5));
-nav.addEventListener('mouseout', e => hoverFade(e, 1));
+nav.addEventListener('mouseover', (e) => hoverFade(e, 0.5));
+nav.addEventListener('mouseout', (e) => hoverFade(e, 1));
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 // Sticky navigation:
 const navHight = nav.getBoundingClientRect().height;
 const stickyNav = function (entries) {
@@ -127,7 +123,7 @@ new IntersectionObserver(stickyNav, {
   rootMargin: `-${navHight + 10}px`,
 }).observe(header);
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 // Sections reveal:
 window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -153,7 +149,7 @@ allSections.forEach(function (section) {
   sectionObserver.observe(section);
 });
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 // Lazy loading images:
 const loadImg = function (entries, observer) {
   // Guard:
@@ -176,9 +172,9 @@ const imgObserver = new IntersectionObserver(loadImg, {
 });
 
 // Run loop:
-imgTargets.forEach(img => imgObserver.observe(img));
+imgTargets.forEach((img) => imgObserver.observe(img));
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 // Slider component:
 // Must veriables:
 let currntSlide = 0;
@@ -202,8 +198,7 @@ const activateDot = function () {
 // Go to slide (calculating current slide logic)
 const goToSlide = function () {
   slides.forEach(
-    (slide, i) =>
-      (slide.style.transform = `translateX(${100 * (i - currntSlide)}%)`)
+    (slide, i) => (slide.style.transform = `translateX(${100 * (i - currntSlide)}%)`)
   );
   activateDot();
 };
