@@ -37,7 +37,7 @@ To run the project locally, follow these steps:
    ```
 3. Open `index.html` in your preferred web browser.
 
-> You can also preview the website by visiting the following link: [Bankist Domain](http://kislev.me/bankist-domain)
+> You can also preview the website by visiting the following link: [Bankist Domain](https://kislevlevy.github.io/bankist-domain/)
 
 ## Usage
 
